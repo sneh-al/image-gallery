@@ -26,7 +26,7 @@ const ImagePopup = ({ imageId, handleModal, showModal, imageUrl, user }) => {
       open={showModal}
       onClose={handleModal}
       aria-labelledby={image?.slug}
-      classNames={{ modal: "p-0" }}
+      classNames={{ modal: "p-0 m-0 w-full" }}
     >
       <div className="relative flex flex-col w-full bg-gray-50 dark:bg-gray-950   text-gray-950 dark:text-gray-50">
         <div className="relative grid items-center ">
