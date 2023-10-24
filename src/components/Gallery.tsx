@@ -11,7 +11,7 @@ const Gallery = () => {
       {isPending && <Loading />}
       {error && <div>{error}</div>}
 
-      <div className="columns-1 sm:columns-2 md:columns-3 space-y-5 py-24">
+      <div className="columns-2 md:columns-3 space-y-5 py-24">
         {data &&
           data?.map((image) => <ImageCard key={image?.id} image={image} />)}
       </div>
