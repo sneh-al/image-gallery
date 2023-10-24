@@ -18,16 +18,22 @@ const handleBack =()=>
    
   }
 if(query !== '' )
-  return     <div className="w-full max-w-7xl m-auto text-gray-950 dark:text-gray-50   p-5 ">
-    <h2 className="font bold text-3xl ">
+  return     <div className="w-full max-w-7xl m-auto text-gray-950 dark:text-gray-50   p-5 flex  flex-col gap-3 ">
+    <h2 className="font bold text-3xl flex items-center gap-2">
       <Button
+      variant="outline"
       onClick={handleBack}
-      >Go back</Button>
+      >
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+</svg>
+
+        </Button>
       {query}</h2>
     {tags && <ul className="flex flex-wrap gap-2 ">
       {
         tags?.map((tag, index) => {
-          return <li key={index}><Button>
+          return <li key={index}><Button variant="secondary">
 {tag}
             </Button></li>
         })
