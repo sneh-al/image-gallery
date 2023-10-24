@@ -18,6 +18,7 @@ const ContextProvider = ({ children }: ContextProviderProps) => {
     "https://api.unsplash.com/search/photos",
     "https://api.unsplash.com/photos",
   ];
+  const unsplashKey =import.meta.env.VITE_UNSPLASH_KEY
   const [data, setData] = useState(null);
   const [url, setUrl] = useState(urls[1]);
   const [isPending, setIsPending] = useState(false);
@@ -27,7 +28,7 @@ const ContextProvider = ({ children }: ContextProviderProps) => {
     setIsPending(true);
     try {
       const response = await fetch(
-        `${url}?query=${query}&client_id=Rf9OVzUEeAbvE9Hu-rAo0IAdIqcN_uBBWXd1QGiPCD0`
+        `${url}?query=${query}&client_id=${unsplashKey}`
       );
       if (!response.ok) throw new Error(response.statusText);
       const json = await response.json();
@@ -49,7 +50,7 @@ const ContextProvider = ({ children }: ContextProviderProps) => {
   const getImageData = async (imageId) => {
     try {
       const response = await fetch(
-        `${urls[1]}/${imageId}?client_id=Rf9OVzUEeAbvE9Hu-rAo0IAdIqcN_uBBWXd1QGiPCD0`
+        `${urls[1]}/${imageId}?client_id=${unsplashKey}`
       );
       if (!response.ok) throw new Error(response.statusText);
       const json = await response.json();

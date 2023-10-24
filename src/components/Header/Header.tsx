@@ -5,7 +5,7 @@ import MobileNav from "./MobileNav";
 import Navbar from "./Navbar";
 import { Button } from "../ui/button";
 
-const index = () => {
+const Header = () => {
   const [isNav,setIsNav] = useState(false);
   const navHandler =()=>{
     setIsNav(!isNav);
@@ -52,4 +52,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Header;
