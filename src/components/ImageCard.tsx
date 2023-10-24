@@ -43,21 +43,21 @@ const ImageCard = ({ image }: ImageCardProps) => {
       className="h-fit    flex flex-col-reverse  overflow-hidden"
       key={image?.id}
     >
-      <CardHeader className="flex flex-row gap-2 items-center    p-5 ">
-        <Avatar>
-          <AvatarImage src={image?.user.profile_image.small} />
-          <AvatarFallback>{image?.user.username}</AvatarFallback>
-        </Avatar>
-        <div>
-          <CardTitle className=" ">
+      <CardHeader className="flex flex-row flex-wrap gap-2 items-center    p-5 ">
+        <div className="flex flex-wrap items-center gap-2">
+          <Avatar>
+            <AvatarImage src={image?.user.profile_image.small} />
+            <AvatarFallback>{image?.user.username}</AvatarFallback>
+          </Avatar>
+          <CardTitle className=" text-sm md:text-base">
             {image?.user?.first_name}{" "}
             {` ${
               image?.user?.last_name !== null ? image?.user?.last_name : ""
             }`}
+            <CardDescription>@{image?.user.username}</CardDescription>
           </CardTitle>
-          <CardDescription>@{image?.user.username}</CardDescription>
         </div>
-        <Button variant="outline" className="flex gap-1 ml-auto border-0">
+        <Button variant="outline" className="flex gap-1 sm:ml-auto border-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -74,7 +74,6 @@ const ImageCard = ({ image }: ImageCardProps) => {
           </svg>
           <span className="font-semibold">{image?.likes}</span>
         </Button>
-       
       </CardHeader>
       <CardContent className="p-0">
         <img
@@ -85,8 +84,8 @@ const ImageCard = ({ image }: ImageCardProps) => {
       </CardContent>
       {showModal && (
         <ImagePopup
-        imageUrl={image?.urls?.regular}
-        user={image?.user}
+          imageUrl={image?.urls?.regular}
+          user={image?.user}
           imageId={image.id}
           handleModal={handleModal}
           showModal={showModal}
